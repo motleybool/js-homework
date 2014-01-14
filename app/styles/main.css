@@ -192,7 +192,7 @@ a.remove img {
 .total {
   margin: 30px 50px;
   border-top: solid 1px #ddd;
-  font-size 14pt;
+  font-size: 14pt;
 }
 
 .total span {

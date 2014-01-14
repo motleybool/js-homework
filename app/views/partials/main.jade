@@ -1,0 +1,32 @@
+div(snap-content snap-options="$root.snapopts")
+  div(ng-include="'partials/navbar.html'")
+  .row
+    .col-md-12
+      #results
+        .result-item(ng-repeat="result in $root.results")
+          cart-button(title='{{result.title}}', price='{{result.price}}', listid='{{result.listID}}', imgurl='{{result.image}}')
+            img(src='{{result.image}}')
+          .item-details
+            h3(title='{{result.title}}') {{result.title | truncate:22}}
+            span.pull-right {{result.price | currency}}
+            p.creator {{result.creator}}
+            p.type {{result.type}}
+            p.desc(title='{{result.desc}}') {{result.desc | truncate:200}}
+div(snap-drawer="right")
+  .cart.clearfix
+      img(src='images/shopping-cart-icon.png')
+      div
+        a(snap-toggle='right')
+          h3 Your Cart
+        p {{cart.qty}} items totaling {{cart.total | currency}}
+  .cart-items
+    ul
+      li(ng-repeat='item in $root.cart.items')
+        img(src='{{item.image}}')
+        p {{item.title | truncate:20}}
+        p.price {{item.price | currency}}
+        a.remove(ng-click='$root.removeItem(item.id)')
+          img(src='images/remove-icon.png')
+    .total
+      span.pull-left Total:
+      span.pull-right {{$root.cart.total | currency}}

@@ -10,11 +10,10 @@ This app utilizes Angular on the Front-End and Node on the Back-End.  The Node s
 
 Clone the repo into a directory and run the following:
 
-`
+```
 npm install
-
 bower install
-`
+```
 
 Now go into `lib/controllers/api.js` and insert your Amazon API keys:
 
